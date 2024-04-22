@@ -11,7 +11,7 @@ from layers import NBLoss, ZINBLoss, MeanAct, DispAct
 from tsne_helper import compute_gaussian_perplexity
 from poincare_helper import *
 from lorentzian_helper import *
-from embedding_quality_score import get_quality_metrics
+# from embedding_quality_score import get_quality_metrics
 import numpy as np
 import math, os
 from sklearn.metrics import pairwise_distances
@@ -378,7 +378,7 @@ class scDHMap(nn.Module):
 
             if X_true_pca is not None and epoch > 0 and epoch % 40 == 0:
                 epoch_latent = self.encodeBatch(X.to(self.device))
-                QM_ae = get_quality_metrics(X_true_pca, epoch_latent, distance='P')
+                # QM_ae = get_quality_metrics(X_true_pca, epoch_latent, distance='P')
 
             if epoch+1 >= minimum_iter:
                 early_stopping(loss_tsne_val, self)
